@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Creating Elements</title>
+<style type="text/css">
+	.border{border:1px solid black;}
+</style>
+</head>
+
+<body>
+</body>
+
+<script type="text/javascript">
+	//Use this Array of objects to complete the assignment.
+	let people =[
+		{first:"Jason", last:"Vorhees", credit:"Friday the 13th"},
+		{first:"Freddy", last:"Krueger", credit:"A Nightmare on Elm Street" },
+		{first:"Roger", last:"Rabbit", credit:"Who Framed Roger Rabbit" },
+		{first:"Kevin", last:"McCallister", credit:"Home Alone" },
+		{first:"Godzilla", last:"King of The Monsters", credit:"Godzilla" },
+		{first:"Buzz", last:"Lightyear", credit:"Toy Story" },
+		{first:"Marion", last:"Cobretti", credit:"Cobra" }
+	];
+        
+        for(let item in people)
+        {
+            
+               let tempDiv = document.createElement('div')
+               
+               let p = document.createElement('p')
+               let textnode = document.createTextNode(people[item].first) 
+               
+               let p1 = document.createElement('p')
+               let textnode1 = document.createTextNode(people[item].last)
+               
+               let p2 = document.createElement('p')
+               let textnode2 = document.createTextNode(people[item].credit)
+               
+               p.appendChild(textnode)
+               p1.appendChild(textnode1)
+               p2.appendChild(textnode2)
+               
+               tempDiv.appendChild(p) 
+               tempDiv.appendChild(p1)
+               tempDiv.appendChild(p2)
+              
+               
+               tempDiv.classList.add('border')
+               
+               tempDiv.setAttribute("id", String(item)) 
+               
+               document.body.appendChild(tempDiv)
+               
+               
+               
+               console.log(people[item])
+               console.log(`${people[item].first}, ${people[item].last}, ${people[item].credit}`)
+                      
+              
+        }
+     
+	
+</script>
+
+</html>
