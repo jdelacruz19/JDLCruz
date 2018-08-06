@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Events</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style type="text/css">
+            .error {
+                color: red;
+            }
+				
+				#para{}
+				
+        </style>
+
+    </head>
+    <body>
+        <div>Events</div>
+
+        <p>
+            <label>Full Name</label> <input name="name" type="text" />
+            <span></span>
+        </p>
+        <br/>
+
+        <input type="button" name="enter" value="Enter" />
+        <input type="button" name="blue" value="Turn blue" />
+        <input type="button" name="underline" value="Underline" />
+        <input type="button" name="toUppercase" value="All Uppercase" />
+
+		
+		
+        <p class="header" id="para">Sed congue eros mauris, a vehicula mi feugiat ac. Cras convallis pretium erat sed tincidunt. Vivamus pulvinar mauris leo, vitae semper ipsum ornare vel. Duis pharetra commodo pretium. Mauris consequat, velit at pharetra rutrum, elit lectus consectetur ligula, laoreet porttitor tortor metus eget purus. Integer in justo convallis, tempus magna et, pulvinar ligula. Donec lectus purus, tristique non nisl ac, ultricies ornare arcu. Etiam urna mauris, malesuada ut aliquam nec, blandit id nunc. Mauris imperdiet, neque id lobortis dictum, nibh ligula malesuada purus, non pretium ipsum tortor ac velit. Mauris hendrerit faucibus lacus, nec vestibulum nulla.</p>
+        <div></div>
+
+        <script >
+
+            let label = document.querySelector('label');
+            let textField = document.querySelector('input[name="name"]');
+            let enterBtn = document.querySelector('input[name="enter"]');
+            let span = document.querySelector('span');
+            
+            
+            let blueBtn = document.querySelector('input[name="blue"]');
+            let underlineBtn = document.querySelector('input[name="underline"]');
+            let toUpper = document.querySelector('input[name="toUppercase"]');
+
+            enterBtn.addEventListener('click', addText);
+            blueBtn.addEventListener('click', turnblue);
+            underlineBtn.addEventListener('click', addUnderline);
+            toUpper.addEventListener('click', toUppercase);
+
+
+            document.querySelector('input[name="name"]').addEventListener("focus", function () 
+            {
+                this.style.backgroundColor = 'pink';
+            });
+
+            function reset() 
+            {
+                this.style.backgroundColor = 'transparent';
+            }
+
+            document.querySelector('input[name="name"]').addEventListener("blur", reset);
+
+            document.querySelector('input[name="name"]').removeEventListener("blur", reset);
+
+
+            function addText() 
+            {
+
+                if (textField.value.length >= 5) 
+                {
+
+                    label.classList.remove('error');
+                    
+                    textField.value = '';    //PROPERTIES ALWAYS NEED AN = SIGN
+                    span.innerHTML = '';
+                } 
+				
+                else 
+                {
+                    label.classList.add('error');
+                    span.innerHTML='<strong> NOT ENOUGH CHARACTERS!!...MUST BE 5 MIN!!</strong>';
+                }
+
+            }
+			
+            function turnblue()
+            {
+			
+               document.getElementById("para").style.color = "blue";
+			
+            }
+			
+            function addUnderline()
+            {
+			
+		document.getElementById("para").style.textDecoration = "underline";
+			
+            }
+			
+            function toUppercase()
+            {
+			
+		document.getElementById("para").style.textTransform = "uppercase";
+			
+            }
+        </script>
+    </body>
+</html>
