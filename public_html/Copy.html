@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>RANDOM NUMBER GRID</div>
+        
+        <p>
+            <label>Enter A Number [1-100] to create table: </label> <input type="text" id="n1" />
+            <span></span>
+        </p>
+        <br/>
+        <button onclick="calc();">SUBMIT</button>
+        
+        <script type ="text/javascript">
+          /*  
+           function randomNumber (min, max) 
+           {
+              return Math.floor (Math.random() * (max - min + 1)) + min;
+           } 
+       */
+            function calc()
+            {
+                
+               
+                let items = [];
+                let str = '';
+                var n1 = document.getElementById('n1').value;
+                      
+            /* what can we change in the loop to improve it */
+            
+            str += '<table border="1">';
+            for ( let i = 0; i < n1; i++) 
+            {
+                items[i]= [];
+                str += '<tr>'
+               for ( let j = 0; j < n1; j++) {                
+                    items[i][j] = i*j;     
+                    if (items[i][j]%3===0)
+                    {
+                        str += '<td style= "background-color: red; color: white;">' + items[i][j] + '</td>';
+                    }
+                   else if (items[i][j]%2===0)
+                    {
+                        str += '<td style= "background-color: blue; color: white;">' + items[i][j] + '</td>';
+                    }
+                    else
+                    {
+                        str += '<td>' + items[i][j] + '</td>';
+                    }
+                    
+                    
+                }    
+                str += '</tr>';
+               
+            }
+            str += '</table>';
+            
+           
+            
+            document.querySelector('div').innerHTML = str;
+            
+            console.log(items); 
+            
+        } 
+        
+    
+        </script>
+        
+    </body>
+</html>
