@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+        <title>Regex Control</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+            
+            .error
+            {
+                color: red;
+            }
+            
+        </style>
+        
+    </head>
+    <body>
+        <div>LAB5 | Regex Control</div>
+                
+        <input type="text"/>
+        
+        <span></span>
+        
+        <script>
+            
+            let re = /[^0-9]+\D*/;
+            let num = document.querySelector('input');
+            let span = document.querySelector('span');
+            let noNum = '';
+            
+            
+            num.addEventListener('keyup', function()
+            {
+             num.value = num.value.replace(re, noNum);
+             
+             span.classList.add('error');
+             span.innerHTML='<strong> NUMBERS ONLY!!</strong>';
+                                 
+            });
+            
+            
+        </script>
+        
+    </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Test Functions</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+          .ok
+          {
+              border-color: green;
+          }
+          
+          .error
+          {
+              border-color: red;
+          }
+          
+        </style>
+        
+    </head>
+    <body>
+        <div>Week 5|Regex Test Functions</div>
+        
+        <input type="text" name="num"/>
+        <button>SUBMIT</button>
+        
+        <script>
+            
+            let re = /^[0-9]+$/;
+            let inputNumber = document.querySelector('input');
+            let btn = document.querySelector('button');
+            
+            btn.addEventListener('click', function()
+            {
+              inputNumber.classList.remove('ok');
+              inputNumber.classList.remove('error');
+              
+              if(re.test(inputNumber.value))
+              {
+                  inputNumber.classList.remove('error');
+                  inputNumber.classList.add('ok');                    }
+              
+              else if(inputNumber.value.length)
+              {
+                  inputNumber.classList.remove('ok');
+                  inputNumber.classList.add('error');
+              }
+              else if(inputNumber.value.null)
+              {
+                  inputNumber.style.borderColor = 'initial';
+              }
+              
+            });
+            
+        </script>
+        
+    </body>
+</html>
