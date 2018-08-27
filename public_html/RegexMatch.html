@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+            
+            
+            
+        </style>
+        
+    </head>
+    <body>
+        
+        
+        <label>PLEASE ENTER ZIP</label> 
+        <input value="12345 fake st. Providence, RI " type="text" name="num" style="width:100%;"/>
+        <button>SUBMIT</button>
+        
+        <br>
+        
+        <div><b></b></div>
+        
+        <script>
+            
+            let re = /\b[0-9]{5}$\b/;
+            
+            let btn = document.querySelector('button');
+            
+            var str = document.querySelector('input');
+            
+            
+            btn.addEventListener('click', function()
+            {
+              
+                
+                if(str.value.match(re))
+                {
+                    document.querySelector('div').innerHTML = "ZIP CODE MATCH FOUND!! ";
+                    
+                }
+                else
+                {
+                    document.querySelector('div').innerHTML = "ZIP CODE MATCH NOT FOUND!! ";
+                }
+              
+                
+            });
+            
+            
+        </script>
+        
+    </body>
+    
+</html>

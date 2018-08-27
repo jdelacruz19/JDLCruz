@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+        <title>Format Input</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>LAB5 | Regex Mask-Format Input</div>
+        
+        <input type="text"/>
+        
+        <script>
+            
+            let re = /^([\d]{3})+\D*[-|.| ]?([\d]{2})+\D*[-|.| ]?([\d]{4})/;
+            let re2= /[^\d]/g;
+            let inputNum = document.querySelector('input');
+            let saveNum = '';
+            let noNum = '';
+            
+            
+            
+            
+            inputNum.addEventListener('keyup', function()
+    
+            {
+                
+                this.value = this.value.replace(re2, noNum);
+                
+            });
+            
+            
+            inputNum.addEventListener('blur', function()
+            {
+              saveNum = this.value;
+              this.value = inputNum.value.replace(re,'###-##-$3');                  
+            });
+            
+            inputNum.addEventListener('focus', function()
+            {
+                this.value= saveNum;
+               
+                this.value = this.value.replace(re2, noNum);
+                
+                    //this.value= saveNum;
+                
+            });
+            
+        </script>
+        
+    </body>
+</html>
