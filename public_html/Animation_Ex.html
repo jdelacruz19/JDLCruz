@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            canvas 
+            {
+             border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <canvas id="race" width="750" height="150"></canvas>
+        <br/>
+        <button id="play">Play</button>
+
+
+        <script type="text/javascript">
+            
+             var btn = document.querySelector('#play');
+             var can = document.querySelector('#race');
+             var ctx = can.getContext('2d');
+             var ctx2 = can.getContext('2d');
+             var ctx3 = can.getContext("2d");
+
+ 
+            function randNum(max) 
+            {
+              return Math.ceil(Math.random()*max) + 1;
+            }
+            
+            function drawClear()
+            {
+                ctx.clearRect(0, 0, can.width, can.height); // x y / w h 
+                 ctx2.clearRect(0, 0, can.width, 90);
+                
+            }
+            
+            var width = 50,
+                height = 50,
+                xaxis = 0,
+                yaxis = 10;
+        
+        var width2 = 50, height2 = 50, xaxis2 = 0, yaxis2 = 90;
+       
+       var finishLine = can.width - 110;
+        
+            var canvasBottom = ( can.height - height );
+            var canvasRight = ( can.width - width);
+            
+                    ctx.fillRect(xaxis, yaxis, width, height); // x y / w h
+                    ctx.fillStyle = "blue";
+                    
+                    ctx2.fillRect(xaxis2, yaxis2, width2, height2);
+                    ctx2.fillStyle = "red";
+                    
+                    start();
+            
+            function start()
+            {
+               btn.addEventListener('click', function()
+               {
+                     moveRectX();
+               });
+               
+            }
+             function moveRectX(){
+                 
+               if ( xaxis < finishLine && xaxis2 < finishLine)
+               {                                   
+                    drawClear();
+                    
+                    xaxis += randNum(20);
+                    xaxis2 += randNum(20); 
+                    
+                    ctx.fillRect(xaxis, yaxis, width, height); // x y / w h
+                    ctx.fillStyle = "blue";
+                    
+                    ctx2.fillRect(xaxis2, yaxis2, width2, height2);
+                    ctx2.fillStyle = "red";
+                    
+                   ctx.beginPath();
+                   ctx.strokestyle = 'black';
+                   ctx.moveTo(can.width - 100, 0);
+                   ctx.lineTo(can.width - 100, can.height);
+                   ctx.lineWidth = 10;
+                   ctx.stroke();
+                   
+                   setTimeout(moveRectX, 100);
+                
+                }
+                
+                else 
+                {
+                    reset();
+                    
+                }               
+                   
+                   
+                   if(xaxis > finishLine)
+                   {
+                    
+                    window.alert("RED WINS!!");
+                        reset();                 
+                   }
+                                     
+                   if(xaxis2 > finishLine)
+                   {
+                       window.alert("BLUE WINS!!");
+                       reset();
+                   }        
+            
+                   if(xaxis === xaxis2 && xaxis > finishLine)
+                   {
+                       window.alert("IT'S A TIE!!");
+                                             
+                   }
+                                
+                }
+                
+                
+                
+               
+            function reset() {
+               xaxis = 0;
+               yaxis = 0;
+               xaxis2 = 0;
+               yaxis2 = 90;
+               
+    }
+                
+        </script>
+        
+        
+       <!-- <div>TODO write content</div>-->
+    </body>
+</html>
